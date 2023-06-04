@@ -10,17 +10,21 @@ PartThymeTracker is a comprehensive tool to track and manage working hours for i
 3. **Work Duration Feedback**: Upon logout, the server calculates the total work duration for the session and sends this information back. If the NFC device has audio capabilities, this information can be read out loud to the user.
 4. **Web Interface**: In addition to the NFC system, a web interface is available for manual entry and management of working hours.
 
+## Technologies
+
+- [JDK 17](https://www.oracle.com/)
+- [Gradle 8](https://gradle.org/)
+- [Spring Boot 3.1](https://spring.io/projects/spring-boot)
+  - [Spring Security 6](https://spring.io/projects/spring-security)
+- [Thymeleaf 3.1](https://www.thymeleaf.org/)
+- [Bootstrap 5.3](https://getbootstrap.com/)
+- [Docker](https://www.docker.com/)
+- [NFC](https://de.wikipedia.org/wiki/Near_Field_Communication)
+  - A NFC-capable device for testing or any other HTTP client (e.g. Postman)
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
-
-### Prerequisites
-
-- JDK 17
-- Gradle 8
-- Spring Boot 3.1
-- Docker
-- An NFC-capable device for testing or any other HTTP client (e.g. Postman)
 
 ### Installation
 
