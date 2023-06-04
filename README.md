@@ -43,6 +43,8 @@ cd PartThymeTracker
 
 Spring Boot 3.1 will start up the docker-compose.yml and start up the PostgreSQL database. The server will be running at [http://localhost:8080](http://localhost:8080).
 
+The pre-set Username is ```user``` and the pre-set password is ```password123```. This user has no admin authority therefore he cannot reach ```/add-user```. If you want to change the authority level, you need to change it in the ```PartThymeTrackerApplication.java``` in the ```run``` method (```new Authority("ROLE_ADMIN")```).
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
