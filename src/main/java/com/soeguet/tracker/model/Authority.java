@@ -11,26 +11,23 @@ import org.springframework.security.core.GrantedAuthority;
 @AllArgsConstructor
 public class Authority implements GrantedAuthority {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    private String authority;
+  private String authority;
 
-    public Authority(String authority) {
-        this.authority = authority;
-    }
+  public Authority(String authority) {
+    this.authority = authority;
+  }
 
-    @Override
-    public String getAuthority() {
-        return authority;
-    }
+  @Override
+  public String getAuthority() {
+    return authority;
+  }
 
-    @Override
-    public String toString() {
-        return "Authority{" +
-                "id=" + id +
-                ", authority='" + authority + '\'' +
-                '}';
-    }
+  @Override
+  public String toString() {
+    return "Authority{" + "id=" + id + ", authority='" + authority + '\'' + '}';
+  }
 }

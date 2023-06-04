@@ -5,14 +5,13 @@ import com.soeguet.tracker.model.DTOs.*;
 import com.soeguet.tracker.model.WorkTime;
 import com.soeguet.tracker.service.WorkerService;
 import jakarta.servlet.http.HttpServletRequest;
+import java.util.List;
+import java.util.UUID;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.UUID;
 
 @Controller
 public class WorkerController {

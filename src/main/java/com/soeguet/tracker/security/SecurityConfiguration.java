@@ -15,32 +15,33 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfiguration {
 
-    //nfc -> csrf
-    @Bean
-    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+  // nfc -> csrf
+  @Bean
+  SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
-        http
-            .authorizeHttpRequests(request -> {
-                request.requestMatchers("/api/v1/log").permitAll();
-                request.requestMatchers("/add-user").hasRole("ADMIN");
-                request.requestMatchers("/**").fullyAuthenticated();
+    http.authorizeHttpRequests(
+            request -> {
+              request.requestMatchers("/api/v1/log").permitAll();
+              request.requestMatchers("/add-user").hasRole("ADMIN");
+              request.requestMatchers("/**").fullyAuthenticated();
             })
-//            csrf().disable()
-//            .headers().frameOptions().disable().and()
-            .formLogin(Customizer.withDefaults());
-        return http.build();
-    }
+        //            csrf().disable()
+        //            .headers().frameOptions().disable().and()
+        .formLogin(Customizer.withDefaults());
+    return http.build();
+  }
 
-    @Bean
-    public PasswordEncoder encoder() {
-        return new BCryptPasswordEncoder();
-    }
+  @Bean
+  public PasswordEncoder encoder() {
+    return new BCryptPasswordEncoder();
+  }
 
-    @Bean
-    DaoAuthenticationProvider daoAuthenticationProvider(CustomUserDetailsService customUserDetailsService, PasswordEncoder bCryptPasswordEncoder) {
-        DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
-        daoAuthenticationProvider.setUserDetailsService(customUserDetailsService);
-        daoAuthenticationProvider.setPasswordEncoder(bCryptPasswordEncoder);
-        return daoAuthenticationProvider;
-    }
+  @Bean
+  DaoAuthenticationProvider daoAuthenticationProvider(
+      CustomUserDetailsService customUserDetailsService, PasswordEncoder bCryptPasswordEncoder) {
+    DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
+    daoAuthenticationProvider.setUserDetailsService(customUserDetailsService);
+    daoAuthenticationProvider.setPasswordEncoder(bCryptPasswordEncoder);
+    return daoAuthenticationProvider;
+  }
 }
